@@ -4,23 +4,26 @@
     angular.module('shoppinglist.list')
       .controller('ListController', ListController);
 
-    function ListController() {
+    function ListController($scope) {
       var vm = this;
 
       vm.products = [];
 
       vm.addToProducts = function() {
-        //add typed product into vm.products
+        vm.products.push({name: vm.productName});
+        vm.productName = '';
       }
 
       vm.removeProduct = function(product) {
-        //remove product from vm.products
+        _.remove(vm.products, {name: product.name});
       }
 
       $scope.$watch(function() {
         return vm.products
       }, function (newProducts) {
-        //count products where 'bought' != true and assign into vm.remainingCount
+        vm.remainingCount = _.filter(newProducts, function(product){
+          return product.bought != true;
+        }).length;
 		  }, true);
     }
   }());

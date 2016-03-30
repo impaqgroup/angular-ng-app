@@ -1,20 +1,16 @@
 <section class="shoppinglist">
   <header>
     <form ng-submit="vm.addToProducts()">
-      <!-- use ng-model directive -->
-      <input placeholder="What needs to be bought?" autofocus>
+      <input placeholder="What needs to be bought?" ng-model="vm.productName" autofocus>
     </form>
   </header>
   <section ng-show="vm.products.length" ng-cloak>
     <ul>
-      <!-- use ng-class directive -->
-      <li ng-repeat="product in vm.products">
+      <li ng-repeat="product in vm.products" ng-class="{bought: product.bought}">
         <div class="view">
-          <!-- use ng-model directive -->
-          <input class="toggle" type="checkbox">
+          <input class="toggle" type="checkbox" ng-model="product.bought">
           <label>{{product.name}}</label>
-          <!-- call vm.removeProduct(product) method after click -->
-          <button class="destroy"></button>
+          <button class="destroy" ng-click="vm.removeProduct(product)"></button>
         </div>
       </li>
     </ul>

@@ -25,8 +25,7 @@
           templateUrl: 'list/html/products.html',
           controller: 'ProductsController as vm',
           size: 'lg'
-        })
-        //handle promise from modal
+        }).result.then(vm.addToProducts)
       }
 
       $scope.$watch(function() {

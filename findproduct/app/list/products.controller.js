@@ -4,14 +4,18 @@
     angular.module('shoppinglist.list')
       .controller('ProductsController', ProductsController);
 
-    function ProductsController($modalInstance) {
+    function ProductsController(productsService, $modalInstance) {
       var vm = this;
 
       vm.chooseProducts = function() {
-        //close modal and return all products where 'selected' === true
+        $modalInstance.close(_.filter(vm.products, {'selected': true}));
       }
 
       vm.cancel = $modalInstance.dismiss;
-      //use productsService and get all products, response assign into vm.products
+      productsService.findAll()
+        .then(function(response) {
+          vm.products = response.data.products;
+        });
+
     }
   }());

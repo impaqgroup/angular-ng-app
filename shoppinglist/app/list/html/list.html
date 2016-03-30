@@ -1,0 +1,28 @@
+<section class="shoppinglist">
+  <header>
+    <form ng-submit="vm.addToProducts()">
+      <!-- use ng-model directive -->
+      <input placeholder="What needs to be bought?" autofocus>
+    </form>
+  </header>
+  <section ng-show="vm.products.length" ng-cloak>
+    <ul>
+      <!-- use ng-class directive -->
+      <li ng-repeat="product in vm.products">
+        <div class="view">
+          <!-- use ng-model directive -->
+          <input class="toggle" type="checkbox">
+          <label>{{product.name}}</label>
+          <!-- call vm.removeProduct(product) method after click -->
+          <button class="destroy"></button>
+        </div>
+      </li>
+    </ul>
+  </section>
+  <footer ng-show="vm.products.length" ng-cloak>
+    <span>
+      <strong>{{vm.remainingCount}}</strong>
+      <ng-pluralize count="vm.remainingCount" when="{ one: 'product left', other: 'products left' }"></ng-pluralize>
+    </span>
+  </footer>
+</section>

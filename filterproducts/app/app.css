@@ -1,0 +1,223 @@
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+
+button {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	background: none;
+	font-size: 100%;
+	vertical-align: baseline;
+	font-family: inherit;
+	font-weight: inherit;
+	color: inherit;
+	-webkit-appearance: none;
+	appearance: none;
+	-webkit-font-smoothing: antialiased;
+	-moz-font-smoothing: antialiased;
+	font-smoothing: antialiased;
+}
+
+body {
+	font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	line-height: 1.4em;
+	background: #f5f5f5;
+	color: #4d4d4d;
+	min-width: 230px;
+	max-width: 550px;
+	margin: 0 auto;
+	-webkit-font-smoothing: antialiased;
+	-moz-font-smoothing: antialiased;
+	font-smoothing: antialiased;
+	font-weight: 300;
+}
+
+button,
+button:focus,
+input[type="checkbox"],
+input[type="checkbox"]:focus {
+	outline: none;
+}
+
+.shoppinglist {
+	background: #fff;
+	margin: 130px 0 40px 0;
+	position: relative;
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2),
+	            0 25px 50px 0 rgba(0, 0, 0, 0.1);
+}
+
+.shoppinglist input::-webkit-input-placeholder,
+.shoppinglist input::-moz-placeholder,
+.shoppinglist input::input-placeholder {
+	font-style: italic;
+	font-weight: 300;
+	color: #e6e6e6;
+}
+
+header > form > input,
+.modal-header input {
+	position: relative;
+	margin: 0;
+	width: 100%;
+	font-size: 24px;
+	font-family: inherit;
+	font-weight: inherit;
+	line-height: 1.4em;
+	border: none;
+	outline: none;
+	color: inherit;
+	box-sizing: border-box;
+	-webkit-font-smoothing: antialiased;
+	-moz-font-smoothing: antialiased;
+  background: rgba(0, 0, 0, 0.003);
+	font-smoothing: antialiased;
+}
+
+header > form > input {
+	padding: 16px 16px 16px 60px;
+	box-shadow: inset 0 -2px 1px rgba(0,0,0,0.03);
+}
+
+.modal-header input {
+	padding: 16px 16px 6px 60px;
+}
+
+.shoppinglist section {
+	position: relative;
+	z-index: 2;
+	border-top: 1px solid #e6e6e6;
+}
+
+.shoppinglist section ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.shoppinglist section ul li {
+	position: relative;
+	font-size: 24px;
+	border-bottom: 1px solid #ededed;
+}
+
+.shoppinglist section ul li:last-child {
+	border-bottom: none;
+}
+
+.modal-body {
+	max-height: 700px;
+	overflow-y: auto;
+}
+
+.modal-body .row input[type="checkbox"] {
+	line-height: 150px;
+}
+
+.modal-body .row span {
+	line-height: 150px;
+	font-size: 18px;
+	white-space: pre-line;
+	word-break: break-all;
+	padding: 15px 60px 15px 15px;
+	display: inline-block;
+	color: #969696;
+	transition: color 0.4s;
+}
+
+.view .toggle {
+	text-align: center;
+	vertical-align: middle;
+	margin: auto 0;
+	border: none; /* Mobile Safari */
+	-webkit-appearance: none;
+	appearance: none;
+}
+
+.view .toggle:after {
+	content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#ededed" stroke-width="3"/></svg>');
+}
+
+.view .toggle:checked:after {
+	content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#bddad5" stroke-width="3"/><path fill="#5dc2af" d="M72 25L42 71 27 56l-4 4 20 20 34-52z"/></svg>');
+}
+
+.view label {
+	white-space: pre-line;
+	word-break: break-all;
+	padding: 15px 60px 15px 15px;
+	display: inline-block;
+	line-height: 1.2;
+	transition: color 0.4s;
+}
+
+.shoppinglist section ul li.bought label {
+	color: #d9d9d9;
+	text-decoration: line-through;
+}
+
+.view .destroy {
+	display: none;
+	position: absolute;
+	top: 0;
+	right: 10px;
+	bottom: 0;
+	width: 40px;
+	height: 40px;
+	margin: auto 0;
+	font-size: 30px;
+	color: #cc9a9a;
+	margin-bottom: 11px;
+	transition: color 0.2s ease-out;
+}
+
+.view .destroy:hover {
+	color: #af5b5e;
+}
+
+.view .destroy:after {
+	content: '×';
+}
+
+.shoppinglist section ul li:hover .destroy {
+	display: block;
+}
+
+.shoppinglist footer {
+	color: #777;
+	padding: 10px 15px;
+	height: 40px;
+	text-align: center;
+	border-top: 1px solid #e6e6e6;
+}
+
+.shoppinglist footer:before {
+	content: '';
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	height: 50px;
+	overflow: hidden;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2),
+	            0 8px 0 -3px #f6f6f6,
+	            0 9px 1px -3px rgba(0, 0, 0, 0.2),
+	            0 16px 0 -6px #f6f6f6,
+	            0 17px 2px -6px rgba(0, 0, 0, 0.2);
+}
+
+.shoppinglist footer span {
+	float: left;
+	text-align: left;
+}
+
+.shoppinglist footer span strong {
+	font-weight: 300;
+}
+
+.shoppinglist footer span button {
+	position: relative;
+}

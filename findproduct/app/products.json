@@ -1,0 +1,8 @@
+{
+    "products": [
+        {"name": "chleb żytni", "img": "images/chleb.jpg"},
+        {"name": "pasztet z indykiem", "img": "images/pasztet.jpg"},
+        {"name": "chipsy cebulowe", "img": "images/chipsy.jpg"},
+        {"name": "zupka błyskawiczna", "img": "images/zupka.jpg"}
+    ]
+}

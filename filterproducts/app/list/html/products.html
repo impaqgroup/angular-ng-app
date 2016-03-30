@@ -1,0 +1,20 @@
+<div class="modal-header">
+  <!-- type and filter by 'name' property -->
+  <input placeholder="Search product" autofocus>
+</div>
+<div class="modal-body">
+  <!-- display filtered products -->
+  <div ng-repeat="product in vm.products | orderBy:'name'">
+    <div class="view row">
+      <input class="col-lg-1 toggle" type="checkbox" ng-model="product.selected">
+      <div class="col-lg-5">
+      <img  ng-src="{{product.img}}">
+      </div>
+      <span class="col-lg-6">{{ product.name }}</span>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <button class="btn" type="button" ng-click="vm.cancel()">Cancel</button>
+  <button class="btn btn-primary" type="button" ng-click="vm.chooseProducts()">Choose</button>
+</div>

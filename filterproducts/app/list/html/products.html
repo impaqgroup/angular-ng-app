@@ -1,10 +1,8 @@
 <div class="modal-header">
-  <!-- type and filter by 'name' property -->
-  <input placeholder="Search product" autofocus>
+  <input placeholder="Search product" ng-model="search.name" autofocus>
 </div>
 <div class="modal-body">
-  <!-- display filtered products -->
-  <div ng-repeat="product in vm.products | orderBy:'name'">
+  <div ng-repeat="product in vm.products | filter:search | orderBy:'name'">
     <div class="view row">
       <input class="col-lg-1 toggle" type="checkbox" ng-model="product.selected">
       <div class="col-lg-5">

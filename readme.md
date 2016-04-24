@@ -7,3 +7,6 @@ tsd query angular --action install
 tsd query jquery --action install
 add reference:
   /// <reference path="angularjs/angular.d.ts" />
+
+Controllers:
+tsd query lodash --action install

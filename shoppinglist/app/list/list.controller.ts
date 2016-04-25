@@ -2,31 +2,33 @@
 /// <reference path="../typings/lodash/lodash.d.ts"/>
 
 import Product from './Product';
+import * as _ from 'lodash';
 
-(function() {
-    angular.module('shoppinglist.list')
-      .controller('ListController', ListController);
+class ListController {
 
-    function ListController($scope) {
-      let vm = this;
+    public products: Product[];
+    public remainingCount: number;
+    public productName: string;
+    public product: Product;
 
-      vm.products = [];
-
-      vm.addToProducts = function() {
-        vm.products.push({name: vm.productName});
-        vm.productName = '';
-      }
-
-      vm.removeProduct = function(product) {
-        _.remove(vm.products, {name: product.name});
-      }
-
-      $scope.$watch(function() {
-        return vm.products
-      }, function (newProducts) {
-        vm.remainingCount = _.filter(newProducts, function(product:Product){
-          return product.bought != true;
-        }).length;
-		  }, true);
+    constructor(private $scope) {
+        $scope.$watch(function() {
+            return this.products
+        }, function(newProducts) {
+            this.remainingCount = _.filter(newProducts, function(product: Product) {
+                return product.bought != true;
+            }).length;
+        }, true);
     }
-  }());
+    addToProducts() {
+        this.products.push({ name: this.productName });
+        this.productName = '';
+    }
+
+    removeProduct() {
+        _.remove(this.products, { name: this.product.name });
+    }
+
+}
+
+export default ListController;

@@ -1,7 +1,8 @@
 /// <reference path="../typings/angularjs/angular.d.ts"/>
 
-class Product {
-  bought:boolean;
+interface Product {
+    bought?: boolean;
+    name: string;
 }
 
 export default Product;

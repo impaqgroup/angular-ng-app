@@ -1,4 +1,4 @@
-*Dodajemy TS do projeltu
+Dodajemy TS do projeltu
 mpm install typescript -g
 npm install tsd -g
 Create tsconfig.js
@@ -10,3 +10,4 @@ add reference:
 
 Controllers:
 tsd query lodash --action install
+tsd install -sr

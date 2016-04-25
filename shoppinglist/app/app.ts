@@ -1,8 +1,11 @@
 /// <reference path="typings/angularjs/angular.d.ts" />
 
-'use strict';
+import list from './list/list';
 
-angular.module('shoppinglist', ['ngRoute', 'ui.bootstrap', 'shoppinglist.list'])
+angular.module('shoppinglist', [
+  'ngRoute',
+  'ui.bootstrap',
+  list.name])
   .config(function($routeProvider) {
     $routeProvider
       .otherwise({

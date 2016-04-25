@@ -4,9 +4,9 @@
       <input placeholder="What needs to be bought?" ng-model="vm.productName" autofocus>
     </form>
   </header>
-  <section ng-show="vm.products.length" ng-cloak>
+  <section ng-show="vm.tobays.length" ng-cloak>
     <ul>
-      <li ng-repeat="product in vm.products" ng-class="{bought: product.bought}">
+      <li ng-repeat="product in vm.tobays" ng-class="{bought: product.bought}">
         <div class="view">
           <input class="toggle" type="checkbox" ng-model="product.bought">
           <label>{{product.name}}</label>
@@ -15,7 +15,7 @@
       </li>
     </ul>
   </section>
-  <footer ng-show="vm.products.length" ng-cloak>
+  <footer ng-show="vm.tobays.length" ng-cloak>
     <span>
       <strong>{{vm.remainingCount}}</strong>
       <ng-pluralize count="vm.remainingCount" when="{ one: 'product left', other: 'products left' }"></ng-pluralize>

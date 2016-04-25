@@ -1,5 +1,5 @@
 "use strict";
-var list_controller_1 = require('./list.controller');
+var ListController_1 = require('./controllers/ListController');
 var module = angular
     .module('shoppinglist.list', [])
     .config(function ($routeProvider) {
@@ -10,6 +10,6 @@ var module = angular
         controllerAs: 'vm'
     });
 })
-    .controller('ListController', list_controller_1.default);
+    .controller('ListController', ListController_1.default);
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = module;

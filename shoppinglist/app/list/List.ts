@@ -1,6 +1,6 @@
 /// <reference path="../typings/angularjs/angular.d.ts"/>
 
-import ListController from './list.controller';
+import ListController from './controllers/ListController';
 
 var module = angular
     .module('shoppinglist.list', [])

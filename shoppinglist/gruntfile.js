@@ -27,7 +27,19 @@ module.exports = function(grunt) {
         }
       }
     }
-  });
+  }
+  // ts: {
+  //          options: {
+  //              module: "amd",
+  //              sourceMap: true,
+  //              target: "es5",
+  //              removeComments: false
+  //          },
+  //          demo: {
+  //              src: ["<%= app %>/**/*.ts"]
+  //          }
+  //      }
+);
 
   grunt.registerTask('server', ['connect:livereload', 'watch']);
   grunt.registerTask('default', ['server']);

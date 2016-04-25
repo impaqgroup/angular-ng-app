@@ -1,4 +1,11 @@
-( {
+
+interface IProduct{
+    name: string;
+    bought: boolean;
+    img: string;
+}
+
+(function() {
     'use strict';
 
     angular.module('shoppinglist.list')
@@ -11,8 +18,7 @@
         if(!_.isArray(products)) {
           products = [products];
         }
-        let union: any = _.union(vm.products, products);
-        vm.products = _.uniq(union, 'name');
+        vm.products = _.uniq(_.union(vm.products, products), 'name');
         vm.productName = '';
       }
 
@@ -31,11 +37,11 @@
 
       $scope.$watch(function() {
         return vm.products
-      }, function (newProducts) {
+      }, function (newProducts: IProduct[]) {
         vm.remainingCount = _.filter(newProducts, function(product){
           return product.bought != true;
         }).length;
 		  }, true);
 
     }
-  });
+  }());

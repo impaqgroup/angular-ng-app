@@ -1,27 +1,27 @@
 <section class="shoppinglist">
   <header>
-    <form ng-submit="vm.addToProducts({name: vm.productName})">
-      <input placeholder="What needs to be bought?" ng-model="vm.productName" autofocus>
+    <form ng-submit="vm.obj.addToProducts({name: vm.obj.productName})">
+      <input placeholder="What needs to be bought?" ng-model="vm.obj.productName" autofocus>
     </form>
   </header>
-  <section ng-show="vm.products.length" ng-cloak>
+  <section ng-show="vm.obj.products.length" ng-cloak>
     <ul>
-      <li ng-repeat="product in vm.products" ng-class="{bought: product.bought}">
+      <li ng-repeat="product in vm.obj.products" ng-class="{bought: product.bought}">
         <div class="view">
           <input class="toggle" type="checkbox" ng-model="product.bought">
           <label>{{product.name}}</label>
-          <button class="destroy" ng-click="vm.removeProduct(product)"></button>
+          <button class="destroy" ng-click="vm.obj.removeProduct(product)"></button>
         </div>
       </li>
     </ul>
   </section>
   <footer>
-    <span ng-show="vm.products.length" ng-cloak>
-      <strong>{{vm.remainingCount}}</strong>
-      <ng-pluralize count="vm.remainingCount" when="{ one: 'product left', other: 'products left' }"></ng-pluralize>
+    <span ng-show="vm.obj.products.length" ng-cloak>
+      <strong>{{vm.obj.remainingCount}}</strong>
+      <ng-pluralize count="vm.obj.remainingCount" when="{ one: 'product left', other: 'products left' }"></ng-pluralize>
     </span>
     <span class="pull-right">
-      <button ng-click="vm.findProduct()"><strong>Find product</strong></button>
+      <button ng-click="vm.obj.findProduct()"><strong>Find product</strong></button>
     </span>
   </footer>
 </section>

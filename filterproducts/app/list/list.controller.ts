@@ -1,47 +1,60 @@
 
-interface IProduct{
+interface IProduct {
     name: string;
     bought: boolean;
     img: string;
 }
 
-(function() {
+(() => {
     'use strict';
 
     angular.module('shoppinglist.list')
-      .controller('ListController', ListController);
+        .controller('ListController', ListController);
 
     function ListController($scope, $modal) {
-      var vm = this;
+        var obj = new ListControllerC($scope, $modal);
+        var vm = this;
+        vm.obj = obj;
+    }
 
-      vm.addToProducts = function(products) {
-        if(!_.isArray(products)) {
-          products = [products];
+    class ListControllerC {
+
+        public products: any = [];
+        private remainingCount: number;
+        private productName: string;
+        private $modal: any;
+
+        constructor($scope, $modal) {
+            this.$modal = $modal;
+            $scope.$watch(() =>
+                this.products,
+                (newProducts: IProduct[]) => {
+                    this.remainingCount = _.filter(newProducts, (product) => {
+                        return product.bought != true;
+                    }).length;
+                }, true);
         }
-        vm.products = _.uniq(_.union(vm.products, products), 'name');
-        vm.productName = '';
-      }
 
-      vm.removeProduct = function(product) {
-        _.remove(vm.products, {name: product.name});
-      }
+        addToProducts(products) {
+            if (!_.isArray(products)) {
+                products = [products];
+            }
+            this.productName = '';
+            this.products = _.uniq(_.union(this.products, products), 'name');
+        }
 
-      vm.findProduct = function() {
-        $modal.open({
-          animation: true,
-          templateUrl: 'list/html/products.html',
-          controller: 'ProductsController as vm',
-          size: 'lg'
-        }).result.then(vm.addToProducts)
-      }
+        removeProduct(product) {
+            _.remove(this.products, { name: product.name });
+        }
 
-      $scope.$watch(function() {
-        return vm.products
-      }, function (newProducts: IProduct[]) {
-        vm.remainingCount = _.filter(newProducts, function(product){
-          return product.bought != true;
-        }).length;
-		  }, true);
+        findProduct() {
+            this.$modal.open({
+                animation: true,
+                templateUrl: 'list/html/products.html',
+                controller: 'ProductsController as vm',
+                size: 'lg'
+            }).result.then(this.addToProducts)
+        }
 
     }
-  }());
+})();

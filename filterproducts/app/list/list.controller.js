@@ -3,32 +3,42 @@
     angular.module('shoppinglist.list')
         .controller('ListController', ListController);
     function ListController($scope, $modal) {
+        var obj = new ListControllerC($scope, $modal);
         var vm = this;
-        vm.addToProducts = function (products) {
+        vm.obj = obj;
+    }
+    var ListControllerC = (function () {
+        function ListControllerC($scope, $modal) {
+            var _this = this;
+            this.products = [];
+            this.$modal = $modal;
+            $scope.$watch(function () {
+                return _this.products;
+            }, function (newProducts) {
+                _this.remainingCount = _.filter(newProducts, function (product) {
+                    return product.bought != true;
+                }).length;
+            }, true);
+        }
+        ListControllerC.prototype.addToProducts = function (products) {
             if (!_.isArray(products)) {
                 products = [products];
             }
-            vm.products = _.uniq(_.union(vm.products, products), 'name');
-            vm.productName = '';
+            this.productName = '';
+            this.products = _.uniq(_.union(this.products, products), 'name');
         };
-        vm.removeProduct = function (product) {
-            _.remove(vm.products, { name: product.name });
+        ListControllerC.prototype.removeProduct = function (product) {
+            _.remove(this.products, { name: product.name });
         };
-        vm.findProduct = function () {
-            $modal.open({
+        ListControllerC.prototype.findProduct = function () {
+            this.$modal.open({
                 animation: true,
                 templateUrl: 'list/html/products.html',
                 controller: 'ProductsController as vm',
                 size: 'lg'
-            }).result.then(vm.addToProducts);
+            }).result.then(this.addToProducts);
         };
-        $scope.$watch(function () {
-            return vm.products;
-        }, function (newProducts) {
-            vm.remainingCount = _.filter(newProducts, function (product) {
-                return product.bought != true;
-            }).length;
-        }, true);
-    }
-}());
+        return ListControllerC;
+    }());
+})();
 //# sourceMappingURL=list.controller.js.map

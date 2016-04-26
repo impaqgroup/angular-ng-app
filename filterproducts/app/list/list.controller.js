@@ -31,3 +31,4 @@
         }, true);
     }
 }());
+//# sourceMappingURL=list.controller.js.map

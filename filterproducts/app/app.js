@@ -6,3 +6,4 @@ angular.module('shoppinglist', ['ngRoute', 'ui.bootstrap', 'shoppinglist.list'])
         redirectTo: '/list'
     });
 });
+//# sourceMappingURL=app.js.map

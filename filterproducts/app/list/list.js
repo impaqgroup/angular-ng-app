@@ -8,3 +8,4 @@ angular.module('shoppinglist.list', [])
         controllerAs: 'vm'
     });
 });
+//# sourceMappingURL=list.js.map

@@ -1,9 +1,15 @@
-'use strict';
+/// <reference path="./typings/tsd.d.ts"/>
 
-angular.module('shoppinglist', ['ngRoute', 'ui.bootstrap', 'shoppinglist.list'])
+import list from './list/list';
+
+angular.module('shoppinglist', ['ngRoute', 'ui.bootstrap', list.name])
   .config(function($routeProvider) {
     $routeProvider
       .otherwise({
         redirectTo: '/list'
       });
+  });
+
+  angular.element(document).ready(() => {
+      angular.bootstrap(document, ['shoppinglist'], {});
   });

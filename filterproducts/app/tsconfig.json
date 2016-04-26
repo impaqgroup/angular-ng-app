@@ -17,6 +17,7 @@
         "app.ts",
         "list/list.controller.ts",
         "list/list.ts",
+        "list/product.ts",
         "list/products.controller.ts",
         "list/products.service.ts",
         "typings/angularjs/angular.d.ts",

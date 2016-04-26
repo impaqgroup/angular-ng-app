@@ -1,13 +1,16 @@
 /// <reference path="../typings/tsd.d.ts"/>
 
-'use strict';
+import ListController from './list.controller';
 
-angular.module('shoppinglist.list', [])
-  .config(function($routeProvider) {
-    $routeProvider
-      .when('/list', {
-        templateUrl: 'list/html/list.html',
-        controller: 'ListController',
-        controllerAs: 'vm'
-      });
-  });
+var module = angular.
+    module('shoppinglist.list', [])
+    .config(function($routeProvider) {
+        $routeProvider
+            .when('/list', {
+                templateUrl: 'list/html/list.html',
+                controller: 'ListController',
+                controllerAs: 'vm'
+            });
+    }).controller('ListController', ListController)
+
+export default module;

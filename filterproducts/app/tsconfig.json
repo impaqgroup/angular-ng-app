@@ -1,0 +1,27 @@
+{
+    "filesGlob": [
+        "**/*.ts"
+    ],
+    "compilerOptions": {
+        "module": "commonjs",
+        "noImplicitAny": false,
+        "preserveConstEnums": true,
+        "experimentalDecorators": true,
+        "target": "ES5",
+        "sourceMap": true
+    },
+    "atom": {
+        "rewriteTsconfig": true
+    },
+    "files": [
+        "app.ts",
+        "list/list.controller.ts",
+        "list/list.ts",
+        "list/products.controller.ts",
+        "list/products.service.ts",
+        "typings/angularjs/angular.d.ts",
+        "typings/jquery/jquery.d.ts",
+        "typings/lodash/lodash-3.10.d.ts",
+        "typings/tsd.d.ts"
+    ]
+}

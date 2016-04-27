@@ -12,6 +12,7 @@
     "bootstrap": "~3.3"
   },
   "devDependencies": {
-    "lodash": "~3.10.1"
+    "lodash": "~3.10.1",
+    "system.js": "*"
   }
 }
